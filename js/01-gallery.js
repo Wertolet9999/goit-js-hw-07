@@ -22,11 +22,18 @@ function selectImage(event) {
       return
   }
   const imageRef = event.target.dataset.source;
-  let instance = basicLightbox.create(`<img src="${imageRef}">`);
+  const instance = basicLightbox.create(`<img src="${imageRef}">`,
+    {
+      OnClose: () => {
+        window.removeEventListener('keydown', closeMod)
+      }
+  });
   instance.show();
-  window.addEventListener('keydown', event => {
+  window.addEventListener('keydown',closeMod)
+    
+  function closeMod(event) {
     if (event.key === 'Escape') {
       instance.close();
     }
-  });
+  };
 }
