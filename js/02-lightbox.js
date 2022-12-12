@@ -24,10 +24,7 @@ function selectImage(event) {
     }
 
 let lightbox = new SimpleLightbox('.gallery a', {
-  /* options */
-  captions: true,
   captionsData: 'alt',
-  captionSelector: 'img',
   captionPosition: 'bottom',
   captionDelay: 250,
 });
